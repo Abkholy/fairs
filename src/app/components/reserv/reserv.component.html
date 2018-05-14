@@ -1,0 +1,69 @@
+<div *ngIf="reservations$?.length > 0; else noRes">
+<hr>
+<div class="container">
+    <div class="row">
+<h4 class="text-right text-danger col">قائمة زيارات المعارض</h4>
+
+<button routerLink="/" class="btn btn-outline-primary  ">
+  الصفحة الرئيسية</button>
+</div>
+</div>
+<hr>
+
+  <div class="table-hover table-bordered table-responsive">
+    <table class="table text-center " dir="rtl">
+      <thead dir="rtl" class="text-danger">
+        <tr>
+            <th scope="col">المعرض</th>
+          <th scope="col">اسم المدرسة</th>
+          <th scope="col">المرحلة الدراسية</th>
+          <th scope="col">مكتب التعليم</th>
+          <th scope="col">هاتف المدرسة</th>
+          <th scope="col">عدد الطلاب</th>
+          <th scope="col">اسم المرافق</th>
+          <th scope="col"> جوال المرافق</th>
+          <th scope="col">تاريخ الزيارة</th>
+          <th scope="col">وقت الزيارة</th>
+
+<th scope="col">إلغاء </th>
+
+        </tr>
+      </thead>
+      <tbody  *ngFor="let res of reservations$" class="font-weight-bold text-black" >
+        <tr>
+            <td>{{res.fairName}}</td>
+          <td>{{res.schoolName}}</td>
+          <td>{{res.eduLevel}}</td>
+          <td>{{res.eduOffice}}</td>
+          <td>{{res.schoolPhone}}</td>
+          <td>{{res.studentNumber}}</td>
+          <td>{{res.teacherName}}</td>
+          <td>{{res.teacherPhone}}</td>
+          <td>{{res.visitDate | date: "yyyy-MM-dd"}}</td>
+          <td>{{res.visitTime}}</td>
+            <td><button (click)="deleterservation($event , res)" class="btn btn btn-danger">
+            إلغاء الزيارة</button>
+
+          </td>
+
+
+        </tr>
+
+
+      </tbody>
+           </table>
+  </div>
+
+</div>
+
+
+
+<ng-template #noRes >
+  <hr>
+  <div class="text-center">
+  <img src="assets/img/loading.gif" alt="image" >
+  <h3>جاري تحميل قائمة الزيارات</h3>
+</div>
+<hr>
+
+</ng-template>

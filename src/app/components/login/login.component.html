@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-12  offset-md-12">
+        <div class="card-body">
+
+    <h2 class="text-right text-danger">صفحة الدخول </h2>
+
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12  offset-md-12">
+    <div class="card-body">
+
+        <form (submit)="mySubmit(email,password)">
+            <div class="form-group">
+              <label for="email">البريد الالكتروني:</label>
+   <input type="email" class="form-control" name="email" required [(ngModel)]="email">
+            </div>
+            <div class="form-group">
+              <label for="pwd">كلمة السر:</label>
+  <input type="password" class="form-control" name="password" [(ngModel)]="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-info btn-block" value="Login">Login</button>
+          </form>
+
+
+
+        </div></div>
+</div></div>
+

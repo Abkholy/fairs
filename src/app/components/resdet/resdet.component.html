@@ -1,0 +1,49 @@
+<div class="text-center">
+  <br>
+  <img src="../../../assets/img/logo.png"  alt="image">
+  <br><br><br><h1>طلب زيارة معرض</h1>
+  <p class="lead">برجاء ملىء البيانات المطلوبة</p>
+</div>
+
+
+<form dir="rtl" (ngSubmit)="onChange(periods)">
+
+  <h4 class="container text-right">المعرض المراد زيارته</h4>
+
+<select class="custom-select d-block w-100" [(ngModel)]="fairs$.fairName" (ngModelChange)="onFairSelected($event)"  name="fairs" id="fairs" required>
+
+    <option   >فضلاً اختر المعرض</option>
+    <option *ngFor="let item of fairs$" [value]="item.id" >{{item.id}} </option>
+</select>
+<div class="col-md-12 mb-3  text-right" >
+  <h5 for="address">اليوم المناسب للزيارة:</h5>
+    <div class="row">
+      <div  class="col-md-12 mb-3 form-group ">
+              <input type="text" class="form-control" locale="ar"  placeholder="فضلاً اختر التاريخ"
+              bsDatepicker      placement="top"
+              [ngModel]="datepickerModel" (ngModelChange)="onChange($event)"
+              showWeekNumbers=false           [minDate]="minDate"
+           [maxDate]="maxDate"  [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-red' }"
+           />
+            </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <h5 class="container text-right">الوقت المناسب للزيارة:</h5>
+    <div class="col-md-12 mb-3 text-right">
+        <select class="custom-select d-block w-100" id="state" [(ngModel)]="selectedinterval">
+          <option value="">اختر الوقت</option>
+          <option *ngFor="let slectedperiod of periods | async" >{{slectedperiod.period}}</option>
+        </select>
+        <div class="invalid-feedback">برجاء ادخال خيار مناسب</div>
+      </div><br><br>
+
+      <button type="submit">موافق</button>
+<h1></h1>
+</form>
+

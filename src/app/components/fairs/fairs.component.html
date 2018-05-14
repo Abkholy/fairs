@@ -1,0 +1,107 @@
+<div *ngIf="fairs$?.length > 0; else loading">
+<hr>
+<hr>
+<div class="container">
+    <div class="row">
+<h4 class="text-right text-danger col">قائمة المعارض</h4>
+
+<button routerLink="/" class="btn btn-outline-primary  ">
+  الصفحة الرئيسية</button>
+</div>
+</div>
+<hr>
+
+  <div class="table-hover table-bordered table-responsive">
+    <table class="table text-center " dir="rtl">
+      <thead dir="rtl" class="text-danger">
+        <tr>
+          <th scope="col">اسم المعرض</th>
+          <th scope="col">من تاريخ</th>
+          <th scope="col">إلى تاريخ</th>
+          <th scope="col">عدد المدارس</th>
+          <th scope="col">مكان المعرض</th>
+          <!-- <th scope="col">تعديل</th>
+<th></th> -->
+<th scope="col">حذف</th>
+
+        </tr>
+      </thead>
+      <tbody  *ngFor="let fair of fairs$" class="font-weight-bold text-black" >
+        <tr>
+
+          <td>{{fair.fairName}}</td>
+          <td>{{fair.fromDate | date: "yyyy-MM-dd"}}</td>
+          <td>{{fair.toDate | date: "yyyy-MM-dd"}}</td>
+          <td>{{fair.noOfSchools}}</td>
+          <td>{{fair.Location}}</td>
+          <!-- <td><i (click)="editFair($event , fair)" class="btn btn btn-warning">
+            تعديل المعرض</i></td>
+            <td>
+                <div *ngIf="editState && fairToEdit.id == fair.id" >
+                    <button (click)="clearState()" class="btn btn btn-secondary">اغلاق</button>
+                    <br>  <hr>
+<form  dir="rtl" (ngSubmit)="updateFair(fair)">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">اسم المعرض</span>
+  </div>
+  <input type="text" [(ngModel)]="fair.fairName" name="fairName" class="form-control">
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">من تاريخ</span>
+  </div>
+  <input type="date" [(ngModel)]="fair.fromDate" name="fromDate" class="form-control"  >
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">إلى تاريخ</span>
+  </div>
+  <input type="date"[(ngModel)]="fair.toDate" name="toDate" class="form-control"  >
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">موقع المعرض</span>
+  </div>
+  <input type="text" [(ngModel)]="fair.Location" name="Location" class="form-control"  >
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"> عدد المدارس</span>
+  </div>
+  <input type="number" [(ngModel)]="fair.noOfSchools" name="noOfSchools" class="form-control"  >
+</div>
+<button type="submit" value="Submit" class="btn btn-warning btn-lg btn-block" routerLink="fairs"></button>
+ </form>
+
+
+
+                  </div> -->
+            <!-- </td> -->
+          <td><button (click)="deletefair($event , fair)" class="btn btn btn-danger">
+            حذف المعرض</button>
+
+          </td>
+
+
+        </tr>
+
+
+      </tbody>
+           </table>
+  </div>
+
+</div>
+
+
+
+
+<ng-template #loading >
+  <hr>
+  <div class="text-center">
+  <img src="assets/img/loading.gif" alt="image" >
+  <h3>جاري تحميل قائمة المعارض</h3>
+</div>
+<hr>
+
+</ng-template>

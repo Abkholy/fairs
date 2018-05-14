@@ -1,0 +1,71 @@
+<br>  <hr>
+<form  dir="rtl" (ngSubmit)="onSubmit()" >
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">اسم المعرض</span>
+  </div>
+  <input
+   type="text"
+    [(ngModel)]="fair.fairName"
+     name="fairName"
+     class="form-control"
+      #fairfairname="ngModel"
+       required
+       minlength="5"
+       >
+       <div *ngIf="fairfairname?.errors && fairfairname.touched" class="alert alert-warning text-right" role="alert">  <h4 class="alert-heading"> اسم المعرض!</h4>
+        <p>اسم المعرض مطلوب باللغة العربية</p>
+        <hr>
+        <p class="mb-0">مثال: معرض الرياض الدولي للكتاب</p>
+      </div>
+
+      <div *ngIf="fairfairname?.errors.minlength && fairfairname.touched" class="alert alert-warning text-right">أقل عدد حروف مسموح به 5 حروف</div>
+</div>
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">من تاريخ</span>
+  </div>
+  <input
+  type="date"
+  [(ngModel)]="fair.fromDate"
+  name="fromDate"
+  class="form-control"
+  #fairdatefrom="ngModel"
+  required
+  minlength="5"
+
+
+ >
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">إلى تاريخ</span>
+  </div>
+  <input type="date"   [(ngModel)]="fair.toDate" name="toDate" class="form-control"   #fairtodate="ngModel"
+  required
+  minlength="5" >
+  </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">موقع المعرض</span>
+  </div>
+  <input type="text"  [(ngModel)]="fair.Location" name="Location" class="form-control" #fairlocation="ngModel" required>
+  <div *ngIf="fairlocation?.errors.required && fairlocation.touched" class="alert alert-warning text-right">  موقع المعرض مطلوب  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"> عدد المدارس المسموح بها في الفترة الواحدة</span>
+  </div>
+  <input type="number"  [(ngModel)]="fair.noOfSchools" name="noOfSchools" class="form-control" min="1" max="20" #fairSchooles="ngModel" required >
+  <div *ngIf="fairSchooles?.errors.required && fairSchooles.touched" class="alert alert-warning text-right">  أقل عدد للمدارس مطلوب </div>
+</div>
+<input type="submit" value="Submit" class="btn btn-warning btn-lg btn-block" routerLink="fairs" >
+<!-- <button type="submit"  value="submit"  class="btn btn-warning btn-lg btn-block" ></button> -->
+</form>
+

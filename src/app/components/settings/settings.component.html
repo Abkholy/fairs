@@ -1,0 +1,37 @@
+<hr>
+<h3 class="text-right text-warning"><i class="fa fa-sliders" aria-hidden="true"></i>
+صفحة التسجيل</h3>
+<hr>
+
+<form (submit)="mySubmit()" class="text-right">
+
+  <label class="checkbox-inline">
+      &nbsp; &nbsp;
+    <input type="checkbox" value=""
+    [checked]="settings.isRegisterOpen"
+    (change)="settings.isRegisterOpen=!settings.isRegisterOpen"
+    name="isRegisterOpen"
+    >فتح التسجيل </label>
+
+    &nbsp; &nbsp;
+    &nbsp; &nbsp;
+
+
+  <label class="checkbox-inline">
+      &nbsp; &nbsp;
+    <input type="checkbox" value=""
+    [checked]="settings.canAddFair"
+    (change)="settings.canAddFair=!settings.canAddFair"
+    name="canAddFair"
+    > إمكانية إضافة معرض </label>
+
+    <hr>
+    <button type="submit" class="btn btn-primary btn-block">موافق</button>
+
+  </form>
+
+
+
+
+
+

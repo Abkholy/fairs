@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-right" href="#" routerLink=""  >نظام حجز المعارض</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="" *ngIf="isLogIn"  >الصفحة الرئيسية<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-right" href="#" routerLink="res" *ngIf="isLogIn" >الزيارات</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-right"  href="#"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"  *ngIf="isLogIn" >
+          إدارة المعارض
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item text-right" href="#" routerLink="addfair"  *ngIf="isLogIn"  >إضافة معرض</a>
+          <a class="dropdown-item text-right" href="#" routerLink="fairs" *ngIf="isLogIn" >قائمة المعارض </a>
+
+        </div>
+
+      </li>
+      <li class="navbar-left text-left">
+          <a class="nav-link my-2 my-sm-0 text-left" href="#" routerLink="login" *ngIf="!isLogIn" >دخول النظام</a>
+        </li>
+        <li class="nav-item  text-left">
+            <a class="nav-link  text-left" href="#" routerLink="reg" *ngIf="!isLogIn">تسجيل</a>
+          </li>
+
+        <li class="nav-item  text-left">
+            <a class="nav-link  text-left" href="#" (click)="logoutClick()" *ngIf="isLogIn">تسجيل الخروج</a>
+          </li>
+          <!-- <li class="nav-item  text-left">
+            <a class="nav-link  text-left" href="#" routerLink="settings" *ngIf=" isLogIn">الإعدادات</a>
+          </li> -->
+          <li class="nav-item  text-left">
+              <a class="nav-link" *ngIf="isLogIn">{{isUserLogin}}</a>
+            </li>
+    </ul>
+  </div>
+</nav>
